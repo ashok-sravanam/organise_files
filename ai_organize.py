@@ -262,7 +262,17 @@ if __name__ == "__main__":
         sys.exit(1)
         
     DEST_DIR = Path("/Users/ashoks/Downloads/AI_Organized_Files")
-    API_KEY = "REDACTED_API_KEY" # User provided key
+    # Load API Key securely from .env
+    from dotenv import load_dotenv
+    load_dotenv(BASE_DIR / "NAS_Migration_PoC" / ".env")
+    load_dotenv() # Also check current dir
+
+    API_KEY = os.getenv("GEMINI_API_KEY")
+    
+    if not API_KEY:
+        print("❌ Error: GEMINI_API_KEY not found in environment or .env file.")
+        print("   Please create a .env file with: GEMINI_API_KEY=your_key_here")
+        sys.exit(1)
     
     print(f"🤖 AI-Powered File Organization using {INDEX_FILE}")
     print("=" * 60)
