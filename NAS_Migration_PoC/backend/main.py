@@ -7,8 +7,8 @@ import asyncio
 from pathlib import Path
 from contextlib import asynccontextmanager
 
-from auth import Token, FAKE_USERS_DB, verify_password, create_access_token, get_current_user, get_user_from_token, ACCESS_TOKEN_EXPIRE_MINUTES
-from text_watcher import IndexWatcher
+from .auth import Token, FAKE_USERS_DB, verify_password, create_access_token, get_current_user, get_user_from_token, ACCESS_TOKEN_EXPIRE_MINUTES
+from .text_watcher import IndexWatcher
 
 import sys
 import os
@@ -124,7 +124,16 @@ app = FastAPI(lifespan=lifespan)
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In prod, set to frontend URL
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+        "http://127.0.0.1:5175",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

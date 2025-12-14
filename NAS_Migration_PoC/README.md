@@ -1,18 +1,29 @@
-# NAS Migration System
+# NAS Migration System - Proof of Concept
 
-A real-time file organization system with deep content extraction, automatic classification, and a modern macOS-style dashboard.
+An intelligent file organization system that extracts content from documents, uses AI to suggest optimal folder structures, and automatically organizes files.
+
+## Quick Start
+
+**See [SETUP.md](./SETUP.md) for detailed installation instructions.**
+
+```bash
+# Backend
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements_fixed.txt
+python -m uvicorn backend.main:app --reload --port 8005
+
+# Frontend (new terminal)
+cd frontend && npm install && npm run dev
+```
 
 ## Features
-
-- **Deep Content Extraction**: Extracts full text from PDFs, images (OCR), and documents
-- **Auto-Classification**: Categorizes files into Career, Academic, Projects, Financial
-- **Real-time Sync**: Automatically detects new files and updates the dashboard
+- **Deep Content Extraction**: Reads PDFs, images, and documents using OCR
+- **AI-Powered Organization**: Uses Google Gemini 2.5 Flash to intelligently categorize files
+- **Real-time Dashboard**: macOS Finder-inspired UI built with React
+- **Auto-Sync**: Watches for new files and automatically processes them dashboard
 - **Secure Dashboard**: FastAPI backend with OAuth2 + React frontend
 - **macOS Finder UI**: Clean, native-looking interface
 
-## Setup
-
-### Backend
 ```bash
 cd NAS_Migration_PoC
 python3 -m venv venv

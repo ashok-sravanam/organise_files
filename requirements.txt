@@ -1,0 +1,28 @@
+# Core Extraction
+PyMuPDF
+pytesseract
+Pillow
+openpyxl
+python-docx
+
+# Database
+psycopg2-binary
+
+# AI/LLM Integration
+google-genai
+
+# Utilities
+tqdm
+python-dateutil
+pyyaml
+pandas
+
+# Backend
+fastapi
+uvicorn
+watchdog
+python-jose
+passlib
+bcrypt
+python-multipart
+difflib
